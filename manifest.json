@@ -1,0 +1,13 @@
+{
+  "name": "KSR VIDEO",
+  "short_name": "KSR VIDEO",
+  "start_url": "/KSR/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff0000",
+  "icons": [{
+    "src": "https://cdn-icons-png.flaticon.com/512/1384/1384060.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}
