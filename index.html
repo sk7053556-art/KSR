@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KSR VIDEO</title>
+<style>
+body{margin:0;background:#0f0f0f;color:#fff;font-family:sans-serif}
+header{padding:12px;background:#000;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0}
+.logo{font-weight:bold;font-size:20px} .logo span{background:red;padding:2px 6px;border-radius:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;padding:12px}
+.card{background:#1e1e1e;border-radius:12px;overflow:hidden}
+.thumb{aspect-ratio:16/9;position:relative} .thumb img{width:100%;height:100%;object-fit:cover}
+.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:red;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.info{padding:8px} .title{font-weight:600;font-size:15px} .sub{color:#aaa;font-size:12px}
+#watch{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:100}
+.player{aspect-ratio:16/9;width:100%} .player iframe{width:100%;height:100%}
+</style>
+</head>
+<body>
+<header><div class="logo">KSR<span>VIDEO</span></div></header>
+<div class="grid" id="grid"></div>
+<div id="watch"><div class="player" id="player"></div><div style="padding:12px"><button onclick="document.getElementById('watch').style.display='none'" style="padding:6px 14px;border-radius:20px;border:none;background:#222;color:#fff">← वापस</button><h3 id="wt"></h3></div></div>
+<script>
+let videos=[{id:"D5bN_lMW2nc",title:"मेरा नया वीडियो - KSR Official 🔥",channel:"KSR",thumb:"https://i.ytimg.com/vi/D5bN_lMW2nc/hqdefault.jpg"}];
+function render(){document.getElementById('grid').innerHTML=videos.map(v=>`<div class="card" onclick="openW('${v.id}','${v.title}')"><div class="thumb"><img src="${v.thumb}"><div class="play">▶</div></div><div class="info"><div class="title">${v.title}</div><div class="sub">${v.channel}</div></div></div>`).join('')}
+function openW(id,title){document.getElementById('watch').style.display='block';document.getElementById('wt').innerText=title;document.getElementById('player').innerHTML=`<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" frameborder="0" allowfullscreen></iframe>`}
+render();
+</script>
+</body>
+</html>
